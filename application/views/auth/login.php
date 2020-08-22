@@ -79,7 +79,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="row justify-content-center">
 
         <div class="col-lg-8">
-
+          <div></div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
           <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
               <!-- Nested Row within Card Body -->
@@ -89,16 +94,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Sistem Peminjaman Ruangan dan Barang</h1>
                     </div>
-                    <?= $this->session->flashdata('message') ?>
 
-                    <form class="user" method="post" action="<?= base_url('auth/index') ?>">
+                    <form class="user" method="post" action="<?= base_url('login/submit_login') ?>">
                       <div class="form-group">
                         <input type="username" class="form-control form-control-user" id="username" name="username" placeholder="Enter Username">
-                        <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                       </div>
                       <div class="form-group">
                         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Enter Password">
-                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                       </div>
                       <button type="submit" class="btn btn-primary btn-user btn-block">
                         Login

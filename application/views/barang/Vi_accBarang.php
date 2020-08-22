@@ -34,6 +34,10 @@
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pihak Kedua</label></div>
                         <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail[0]->nama2; ?>" readonly class="form-control" required></div>
                     </div>
+                     <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Telepon</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="notel" name="notel" value= "<?php echo $detail[0]->notel; ?>" readonly class="form-control" required></div>
+                     </div>
                     <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
                         <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail[0]->tujuan; ?>" readonly class="form-control" required></div>
@@ -84,12 +88,17 @@
                                                 <input type="hidden" name="id_pb" value="<?= $detail[0]->id_pb ?>">
                                                 
                                                 <?php if ($detail[0]->status === 'Pending')  : ?>
-                                                    <button type="submit" class="btn btn-success" onclick="$('#act_value').val('Diterima');return confirm('Apakah Anda Yakin Menerima Peminjaman? ');" data-popup="tooltip" data-placement="top" title="Terima">Terima</button>
-                                                    <button type="submit" class="btn btn-danger" onclick="$('#act_value').val('Ditolak');return confirm('Apakah Anda Yakin Menolak Peminjaman? ');" data-popup="tooltip" data-placement="top" title="Tolak">Tolak</button>
+                                                    <button type="submit" class="btn btn-success" onclick="" data-toggle="modal"data-target="#staticModal3" data-popup="tooltip" data-placement="top" title="Terima">Terima</button>
+
+                                                    <button type="submit" class="btn btn-danger" onclick="" data-toggle="modal"data-target="#staticModal4" data-popup="tooltip" data-placement="top" title="Tolak">Tolak</button>
+
                                                     <button type="submit" disabled class="btn btn-secondary" onclick="$('#act_value').val('Dikembalikan');return confirm('Apakah Anda Yakin Barang sudah dikembalikan? ');" data-popup="tooltip" data-placement="top" title="Kembali">Dikembalikan</button>
+
                                                 <?php elseif($detail[0]->status==="Diterima"): ?>
                                                     <button type="submit" disabled class="btn btn-success" onclick="$('#act_value').val('Diterima');return confirm('Apakah Anda Yakin Menerima Peminjaman? ');" data-popup="tooltip" data-placement="top" title="Terima">Terima</button>
+
                                                     <button type="submit" disabled class="btn btn-danger" onclick="$('#act_value').val('Ditolak');return confirm('Apakah Anda Yakin Menolak Peminjaman? ');" data-popup="tooltip" data-placement="top" title="Tolak">Tolak</button>
+
                                                     <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#staticModal2" onclick="$('#act_value').val('Dikembalikan');" title="Kembali">Dikembalikan</button>
                                                 <?php endif; ?>
                                             </form>
@@ -104,7 +113,7 @@
         </div>
     </div>                                
    
-   <div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" style="position:absolute;left:0%; top:60%;">
   <div class="modal-dialog modal-sm" role="document">
     <form action="<?= base_url('crudpinjambarang/update/'); ?>" method="POST">
     <div class="modal-content">
@@ -116,20 +125,67 @@
       </div>
       <div class="modal-body">
         <p>
-          Yakin ingin mengembalikan peminjaman ini?
+          Yakin Barang Sudah Dikembalikan ??
         </p>
       </div>
       <input type="hidden" name="action" id="act_value">
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-        <a type="button" class="btn btn-primary" href="<?php echo site_url('laporanbarang/kelaporan'); ?>">Ya, Kembalikan</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url("laporanbarang/updatelaporan/".$detail[0]->id_pb."/Dikembalikan"); ?>">Ya, Dikembalikan</a>
       </div>
     </div>
 </form>
   </div>
 </div>
 
+<div class="modal fade" id="staticModal3" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" style="position:absolute;left:0%; top:60%;">
+  <div class="modal-dialog modal-sm" role="document">
+    <form action="<?= base_url('crudpinjambarang/update/'); ?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Konfirmasi Penerimaan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Yakin Ingin Menerima Peminjaman Ini ??
+        </p>
+      </div>
+      <input type="hidden" name="action" id="act_value">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url("laporanbarang/updatelaporan/".$detail[0]->id_pb."/Diterima"); ?>">Ya, Terima</a>
+      </div>
+    </div>
+</form>
+  </div>
+</div>
 
-<!-- return confirm('Apakah Anda Yakin Barang sudah dikembalikan? '); -->
-
-                    
+<div class="modal fade" id="staticModal4" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" style="position:absolute;left:0%; top:60%;">
+  <div class="modal-dialog modal-sm" role="document">
+    <form action="<?= base_url("laporanbarang/updatelaporan/".$detail[0]->id_pb."/Ditolak"); ?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Konfirmasi Penolakan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Yakin Menolak Peminjaman Ini ??
+        </p>
+            <label for="exampleInputEmail1">Alasan : </label>
+            <input type="text" name="alasan" id=alasan value="" />
+          </div>
+          <input type="hidden" name="action" id="act_value">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-danger">Ya, Tolak</button> 
+      </div>
+    </div>
+  </form>
+  </div>
+</div>

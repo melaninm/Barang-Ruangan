@@ -11,7 +11,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="description" content="Peminjaman Barang dan Ruangan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/uinsgd.jpg') ?>">
-
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/scss/style.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/normalize.css') ?>">
@@ -19,10 +18,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url('assets/css/themify-icons.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/flag-icon.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/cs-skin-elastic.css') ?>">
-
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
+
+<style>
+img {
+  opacity: 0.5;
+}
+</style>
 
 <body>
 

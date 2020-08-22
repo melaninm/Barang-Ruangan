@@ -81,16 +81,41 @@
                             </div>
                     
 
-
+<!--
                     <div class="card-footer">
-                                
-                                 <form action="<?= base_url('crudpinjambarang/kembali_user/'); ?>" method="POST">
                                     <input type="hidden" name="id_pb" value="<?= $detail[0]->id_pb ?>">
-                                    <input type="hidden" name="status" value="Dikembalikan">
-                                    <button type="submit" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Barang sudah dikembalikan? ');" data-popup="tooltip" data-placement="top" title="Kembali">Dikembalikan</button>
+                                    
+                                     <?php if($detail[0]->status==="Diterima"): ?>
+                                     <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#staticModal2" onclick="$('#act_value').val('Dikembalikan');" title="Kembali">Dikembalikan</button>
+                                     <?php endif; ?>
                                 </form>
                             </div>    
                         </div>
                     </div>
                 </div>
             </div>
+
+<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" style="position:absolute;left:0%; top:60%;">
+  <div class="modal-dialog modal-sm" role="document">
+    <form action="<?= base_url('crudpinjambarang/update/'); ?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Konfirmasi Pengembalian</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Yakin Ingin Mengembalikan Peminjaman Ini?
+        </p>
+      </div>
+      <input type="hidden" name="action" id="act_value">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url("laporanbarang/kelaporan_user/".$detail[0]->id_pb."/Dikembalikan"); ?>">Ya, Kembalikan</a>
+      </div>
+    </div>
+</form>
+  </div>
+</div> -->

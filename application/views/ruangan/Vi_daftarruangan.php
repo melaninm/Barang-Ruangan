@@ -25,8 +25,8 @@
 
                                     <th>Kode Ruangan</th>
                                     <th>Nama Ruangan</th>
-                                    <th>Status</th>
                                     <th>Action</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,12 +37,21 @@
 
                                         <td><?php echo $br->kode_ruangan ?></td>
                                         <td><?php echo $br->nama_ruangan ?></td>
-                                         <td><?php echo $br->ruangan ?></td>
                                         <td>
                                             <a class="btn btn-warning btn-sm" href="<?php echo site_url('crudruangan/edit/' . $br->id_ruangan); ?>" class="btn btn-small"><i class="fa fa-edit"></i>Edit</a>
-                                            <a href="<?php echo site_url('crudruangan/hapus/' . $br->id_ruangan); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus <?=$br->nama_ruangan;?> dari Daftar?');" class="btn btn-danger btn-sm" data-popup="tooltip" data-placement="top" title="Hapus Data" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a>
-                                            <!-- <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#staticModal<?php echo $br->id_ruangan; ?>" onclick="confirm_modal('<?php echo site_url('crudruangan/hapus/' . $br->id_ruangan); ?>','Title');" class="btn btn-small"><i class="fa fa-trash-o"></i>Hapus</a> -->
+                                            <a class="btn btn-danger btn-sm" onclick="" class="btn btn-small" data-toggle="modal"data-target="#staticModal2" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash-o"></i>Hapus</a>
+                                            
                                         </td>
+                                        <!--<td><?php echo $br->ruangan ?></td>-->
+                                        <td>
+                                        <?php if ($br->ruangan == 1)  :
+                                            echo "<label>Tersedia</label>";
+                                        ?>
+
+                                        <?php elseif ($br->ruangan == 0)  :
+                                            echo "<label>Tidak Tersedia</label>";
+                                        ?>
+                                          <?php endif; ?></td>
                                     </tr>
 
                                 <?php } ?>
@@ -61,27 +70,7 @@
     </div>
 </div>
 </div>
-<div class="modal fade" id="modal_delete_m_n" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="" data-backdrop="static">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticModalLabel">Konfirmasi Hapus</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    Yakin ingin menghapus ini?
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                <a type="button" class="btn btn-primary" id="delete_link_m_n">Ya, Hapus</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script>
     function confirm_modal(delete_url, title) {
         jQuery('#modal_delete_m_n').modal('show', {
@@ -93,3 +82,26 @@
         document.getElementById('delete_link_m_n').focus();
     }
 </script>
+
+<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Konfirmasi Hapus</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Yakin Ingin Menghapus Dari Daftar ??
+        </p>
+      </div>
+      <input type="hidden" name="action" id="act_value">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url('crudruangan/hapus/' . $br->id_ruangan); ?>">Ya, Hapus</a>
+      </div>
+    </div>
+  </div>
+</div>

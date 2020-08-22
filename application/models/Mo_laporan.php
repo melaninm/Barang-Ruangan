@@ -5,7 +5,7 @@ class Mo_laporan extends CI_Model{
 	
 	function tampil_laporan($perPage, $start){
 		$this->db->order_by('tanggal', 'desc');
-		return $this->db->get('tbl_pinjambarang', $perPage, $start)->result();
+		return $this->db->get_where('tbl_pinjambarang', array('status' => 'Pending'), $perPage, $start)->result();
 	}
 	function baris_barang()
     {
@@ -55,6 +55,19 @@ class Mo_laporan extends CI_Model{
 	function hapus_barang($where,$table){
         $this->db->where($where);
         $this->db->delete($table);
+    }
+
+    public function UPDATE($data){
+        $query = $this->db->query( "UPDATE tbl_pinjambarang SET status = '".$data['status']."', keterangan = '".$data['keterangan']."' WHERE id_pb ='".$data['id']."'");
+
+        $this->db->set($query);
+    }
+
+     public function display_denda(){
+        $query = $this->db->query("SELECT * FROM tbl_pinjambarang WHERE STATUS = 'diterima' AND tanggal_kembali < '".date('Y-m-d')."'");
+        $data = $query->result();
+
+        return $data;
     }	
 
 }

@@ -7,39 +7,55 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Mo_login');
+		$this->load->library('session');
 	}
 
-	function masuk()
-	{
-		$this->load->view("auth/login");
-	}
-
-	function login_validation()
-	{
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$where = array(
-			'username' => $username,
-			'password' => $password
-		);
-		$cek = $this->Mo_login->cek_login("tbl_login", $where)->num_rows();
-		if ($cek > 0) {
-
-			$data_session = array(
-				'nama' => $username,
-				'status' => "login"
-			);
-
-			$this->session->set_userdata($data_session);
-
-			redirect('admin/index');
-		} else {
-			echo "<script>alert('Username dan password salah!');history.go(-1);</script>";
+	public function index()
+	{	
+		$level = $this->session->userdata('role_id');
+		if($level == 1){
+			redirect('admin/index' , 'refresh');
 		}
+		if($level == 2){
+			redirect('admin/index_user' , 'refresh');
+		}
+
+		else{
+			$this->load->view("auth/login");
+		}
+		
 	}
-	function keluar()
+
+	public function keluar()
 	{
 		$this->session->sess_destroy();
-		redirect('Login/masuk');
+		redirect('Login/index');
+	}
+
+	public function submit_login(){
+
+		$login = $this->Mo_login->login($this->input->post('username'), $this->input->post('password'));
+
+
+        if($login == "ok"){
+        	$level = $this->session->userdata('role_id');
+            if($level == 1){
+            	$message = "Login Admin Berhasil !";
+            	echo "<script type='text/javascript'>alert('$message');</script>";
+            	redirect('admin/index' , 'refresh');
+            }
+            else{
+            	$message = "Login User Berhasil !";
+            	echo "<script type='text/javascript'>alert('$message');</script>";
+            	redirect('admin/index_user' , 'refresh');
+            }
+        }
+
+        else{
+            $message = "Login Gagal !";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            redirect('Login/masuk' , 'refresh');
+            
+        }
 	}
 }

@@ -9,14 +9,18 @@ class Laporanbarang extends CI_Controller
         $this->load->model('mo_menu');
         $this->load->helper('tgl_indo');
         $this->load->helper('bilang');
+        $this->load->helper('url');
+        $this->load->library('session');
+        $this->load->library('form_validation');
         /* if($this->session->userdata('status') != "login"){
 			redirect(site_url("Login/masuk"));} */
     }
     function kelaporan()
     {
+
         $start = $this->uri->segment(3);
+
         $row = $this->mo_laporan->baris_barang();
-        $config['base_url'] = 'http://localhost/Barang-Ruangan/index.php/Laporanbarang/kelaporan/';
         $config['total_rows'] = $row;
         $config['per_page'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="current">';
@@ -41,14 +45,33 @@ class Laporanbarang extends CI_Controller
         $this->pagination->initialize($config);
         $data['pagination'] = $this->pagination->create_links();
         $data['tbl_pinjambarang'] = $this->mo_laporan->tampil_laporan($config['per_page'], $start);
-         $data['menu'] = $this->mo_menu->tampil();
+        $data['menu'] = $this->mo_menu->tampil();
         $data['title'] = 'Laporan Peminjaman Barang';
         $data['page'] = 'barang/Vi_laporan';
+
         $this->load->view('menu', $data);
     }
+
+    public function updatelaporan(){
+        $input['keterangan'] = $this->input->post("alasan");
+        $start = $this->uri->segment(3);
+        $input['id'] = $start;
+        $input['status'] = $this->uri->segment(4);
+        $this->mo_laporan->UPDATE($input);
+
+        redirect('Laporanbarang/kelaporan', 'refresh');
+
+        echo $cek;
+    }
+
     function kelaporan_user()
     {
-        // $start = $this->uri->segment(3);
+        $input['keterangan'] = "";
+        $start = $this->uri->segment(3);
+        $input['id'] = $start;
+        $input['status'] = $this->uri->segment(4);
+        $this->mo_laporan->UPDATE($input);
+
         $row = $this->mo_barang->baris_barang();
         $data['menu2'] = $this->mo_menu->tampiluser();
         $data['title'] = 'Laporan Peminjaman Barang';

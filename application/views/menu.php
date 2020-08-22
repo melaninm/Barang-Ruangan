@@ -53,15 +53,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <i class="far fa-hand-point-left"></i>
                 </button>
 
-                <a class="navbar-brand"><img src="<?php echo base_url('assets/images/uinsgd.jpg'); ?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo.jpg'); ?>" alt="Logo"></a>
+            <br>
+                <h4 style="font-family: 'Open Sans'; font-size: 14px; color: #9496a1;">Welcome, <?php echo $this->session->userdata('username'); ?> ! </h4>
+                
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
 
                 <ul class="nav navbar-nav">
-                    <h3 class="menu-title">Menu</h3><!-- /.menu-title -->
-
+                    <h3 class="menu-title">Menu</h3>
+                    <!-- /.menu-title -->
                     <?php foreach ($menu as $menus) {
                         echo '<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="' . site_url($menus->link) . '" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="' . $menus->icon . '"></i> ' . $menus->judul_menu . ' 
@@ -101,9 +102,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-plus"></i></a>
                     <div class="header-left">
                         <h3><?= $title; ?></h3>
-                    </div>
-                    <div class="header-right">
-                        <p>Welcome, <?php echo $this->session->userdata('nama'); ?> ! </p>
                     </div>
                 </div>
             </div>

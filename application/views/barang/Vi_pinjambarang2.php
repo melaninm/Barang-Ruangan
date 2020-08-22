@@ -38,6 +38,10 @@
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pihak Kedua</label></div>
                 <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value= "<?php echo $detail->nama2; ?>" disabled="" class="form-control" required></div>
               </div>
+               <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Telepon</label></div>
+                <div class="col-12 col-md-9"><input type="text" id="notel" name="notel" value= "<?php echo $detail->notel; ?>" disabled="" class="form-control" required></div>
+              </div>
               <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
                 <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->tujuan; ?>" disabled="" class="form-control" required></div>

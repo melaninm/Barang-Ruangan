@@ -80,7 +80,6 @@ class Crudpinjambarang extends CI_Controller
 
 	public function accpinjam_barang($id)
 	{
-
 		$detail = $this->mo_pinjambarang->get_detail($id);
 		$data['detail'] = $detail;
 		$data['menu'] = $this->mo_menu->tampil();
@@ -129,7 +128,7 @@ class Crudpinjambarang extends CI_Controller
 		$queryupdate = $this->mo_pinjambarang->updateStatus($id,$action);
 		if ($queryupdate) {
 			$pesansukses = '<div class="alert alert-success">Data berhasil diupdate</div>';
-			redirect('Laporanbarang/kelaporan');
+			//redirect('Laporanbarang/kelaporan');
 		}
 		/*echo $action;
 		die();

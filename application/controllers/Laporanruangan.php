@@ -15,6 +15,7 @@ class Laporanruangan extends CI_Controller
     function kelaporan()
     {
         $start = $this->uri->segment(3);
+
         $row = $this->Mo_laporan_ruangan->baris_ruangan();
         $config['base_url'] = 'http://localhost/Barang-Ruangan/index.php/Laporanruangan/kelaporan/';
         $config['total_rows'] = $row;
@@ -46,8 +47,24 @@ class Laporanruangan extends CI_Controller
         $data['page'] = 'ruangan/Vi_laporan';
         $this->load->view('menu', $data);
     }
+
+    public function updatelaporan(){
+
+        $start = $this->uri->segment(3);
+        $input['id'] = $start;
+        $input['status'] = $this->uri->segment(4);
+        $this->Mo_laporan_ruangan->UPDATE($input);
+
+        redirect('Laporanruangan/kelaporan', 'refresh');
+    }
+
     function kelaporan_user()
     {
+        $start = $this->uri->segment(3);
+        $input['id'] = $start;
+        $input['status'] = $this->uri->segment(4);
+        $this->Mo_laporan_ruangan->UPDATE($input);
+
         $data['menu2'] = $this->mo_menu->tampiluser();
         $data['title'] = 'Laporan Peminjaman Ruangan';
         $data['page'] = 'ruangan/Vi_laporan_user';

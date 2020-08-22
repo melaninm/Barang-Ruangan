@@ -17,11 +17,14 @@ class Admin extends CI_Controller
 
 		$this->load->model('mo_login');
 		$this->load->model('mo_menu');
+		$this->load->library('session');
+		$this->load->model('Mo_laporan');
 	}
 
 	function index()
 	{
-
+		$level = $this->session->userdata('role_id');
+		if($level != null){
 		// data variable untuk passing ke view
 
 		$var['pend'] = count($this->mo_login->load_pend());
@@ -33,7 +36,13 @@ class Admin extends CI_Controller
 		$data['menu'] = $this->mo_menu->tampil();
 		$data['title'] = 'Prosedur Peminjaman Barang dan Ruangan';
 		$data['page'] = 'Vi_home';
+
+		//table terlambat
+		$data['table'] = $this->Mo_laporan->display_denda();
+		//view
+		
 		$this->load->view('menu', $data);
+		}
 	}
 
 	function index_user()

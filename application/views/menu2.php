@@ -64,11 +64,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <button style="width: 250px;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
+                <br>
+                <h4 style="font-family: 'Open Sans'; font-size: 14px; color: #9496a1;">Welcome, <?php echo $this->session->userdata('username'); ?> ! </h4>
 
-                <a class="navbar-brand"><img src="<?php echo base_url('assets/images/uinsgd.jpg'); ?>" alt="Logo"></a>
-                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo.jpg'); ?>" alt="Logo"></a>
+                <!-- <a class="navbar-brand"><img src="<?php echo base_url('assets/images/uinsgd.jpg'); ?>" alt="Logo"></a>
+                <a class="navbar-brand hidden"><img src="<?php echo base_url('assets/images/logo.jpg'); ?>" alt="Logo"></a> -->
             </div>
-            <br>
+            
             <div id="main-menu" class="main-menu collapse navbar-collapse">
 
                 <ul class="nav navbar-nav">
@@ -126,9 +128,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                        
                     </div>
-                    <div class="header-right">
-                            <p>Welcome, <?php echo $this->session->userdata('nama'); ?> ! </p>
-                        </div>
 
                 </div>
             </div>

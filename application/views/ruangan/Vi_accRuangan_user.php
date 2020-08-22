@@ -82,24 +82,41 @@
                         </div>
                         </form>
                 
-
-
-
+<!--
                 <div class="card-footer">
-                            <form action="<?= base_url('crudpinjamruangan/kembali_user/'); ?>" method="POST">
-                                    <input type="hidden" name="id_pr" value="<?= $d->id_pr ?>">
-                                    <input type="hidden" name="status" value="Dikembalikan">
-                                    <input type="hidden" name="no_pr" value="<?= $d->no_pr ?>">
-                                    <input type="hidden" name="no_spt" value="<?= $d->no_spt ?>">
-                                    <input type="hidden" name="tanggal" value="<?= $d->tanggal ?>">
-                                    <input type="hidden" name="tanggal_kembali" value="<?= $d->tanggal_kembali ?>">
-                                    <input type="hidden" name="nama1" value="<?= $d->nama1 ?>">
-                                    <input type="hidden" name="nama2" value="<?= $d->nama2 ?>">
-                                    <button type="submit" class="btn btn-secondary" onclick="return confirm('Apakah Anda Yakin Peminjaman sudah selesai? ');" data-popup="tooltip" data-placement="top" title="Kembali">Dikembalikan</button>
+                                    <input type="hidden" name="id_pr" value="<?= $detail[0]->id_pr ?>">
+                                    
+                                     <?php if($detail[0]->status==="Diterima"): ?>
+                                     <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#staticModal2" onclick="$('#act_value').val('Dikembalikan');" title="Kembali">Dikembalikan</button>
+                                     <?php endif; ?>
                                 </form>
+                            </div>    
                         </div>
                     </div>
                 </div>
-                
             </div>
-        </div>
+
+<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" style="position:absolute;left:0%; top:60%;">
+  <div class="modal-dialog modal-sm" role="document">
+    <form action="<?= base_url('crudpinjamruangan/update/'); ?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Konfirmasi Pengembalian</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Yakin Ingin Mengembalikan Peminjaman Ini?
+        </p>
+      </div>
+      <input type="hidden" name="action" id="act_value">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url("laporanruangan/kelaporan_user/".$detail[0]->id_pr."/Dikembalikan"); ?>">Ya, Kembalikan</a>
+      </div>
+    </div>
+</form>
+  </div>
+</div> -->

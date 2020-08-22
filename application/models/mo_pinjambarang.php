@@ -8,14 +8,15 @@ class Mo_pinjambarang extends CI_Model
 
 	function save_master()
 	{
-		//$idpb = $this->input->post('idpb');
+		$idpb = $this->input->post('idpb');
 		$id_user = $this->session->userdata("id");
-		//$nopb = $this->input->post('nopb');
+		$nopb = $this->input->post('nopb');
 		$nospt = $this->input->post('nospt');
 		$tanggal = $this->input->post('tanggal');
 		$tanggal_kembali = $this->input->post('tanggal_kembali');
 		$nama1 = $this->input->post('nama1');
 		$nama2 = $this->input->post('nama2');
+		$notel = $this->input->post('notel');
 		$tujuan = $this->input->post('tujuan');
 
 		//$data['user']  = $this->db->get_where('tbl_login', ['id' => $this->session->userdata('id')])->row_array();
@@ -45,6 +46,7 @@ class Mo_pinjambarang extends CI_Model
 			'tanggal_kembali' => $tanggal_kembali,
 			'nama1' => "Admin Lab FISIP",
 			'nama2' => $nama2,
+			'notel' => $notel,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
 			"file_name"=>$this->upload->data("file_name"),
@@ -105,6 +107,7 @@ class Mo_pinjambarang extends CI_Model
 			'nama2' => $nama2,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
+			'keterangan' => "Silahkan Tunggu Konfirmasi Dari Admin",
 			"file_name"=>$this->upload->data("file_name"),
 		);
 

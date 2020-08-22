@@ -22,6 +22,7 @@
                                     <th>Tujuan</th>
                                     <th>Action</th>
                                     <th class="text-center">Status</th>
+                                    <th>Keterangan</th>
                                 </tr>
 
                             </thead>
@@ -38,9 +39,8 @@
                                         <td><?php echo $br->nama2 ?></td>
                                         <td><?php echo $br->tujuan ?></td>
                                         <td>
-                                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('laporanruangan/cetak/' . $br->id_pr); ?>" class="btn btn-small" target="_blank"><i class="fa fa-print"></i>Cetak</a>
-
-                                            <a class="btn btn-danger btn-sm" href="<?php echo site_url('laporanruangan/hapus_user/' . $br->id_pr); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data? ');" class="btn btn-small" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash-o"></i>Hapus</a>
+                                            <a class="btn btn-warning btn-sm" href="<?php echo site_url('laporanruangan/cetak/' . $br->id_pr); ?>" class="btn btn-small" target="_blank"><i class="fa fa-print"></i> Cetak</a>
+                                            <!--<a class="btn btn-danger btn-sm" onclick="" class="btn btn-small" data-toggle="modal"data-target="#staticModal2" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash-o"></i> Hapus</a> -->
                                             
                                         </td>
                                         <?php
@@ -51,7 +51,19 @@
                                         } else if ($br->status == 'Pending') {
                                             echo '<td><a class="btn btn-info form-control" href="#">' . $br->status . '</a></td>';
                                         } else if ($br->status == 'Dikembalikan') {
-                                            echo '<td><a class="btn btn-secondary form-control" href="#">' . $br->status . '</a></td>';
+                                            echo '<td><a class="btn btn-secondary form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan_user/" . $br->id_pr) . '">' . $br->status . ' </a></td>';
+                                        }
+                                        ?>
+                                        <!-- <?php echo $br->keterangan ?> -->
+                                        <?php
+                                        if ($br->status == 'Ditolak') {
+                                            echo '<td>$br->keterangan</td>';
+                                        } else if ($br->status == 'Diterima') {
+                                            echo '<td><p>Barang Sudah Bisa Dipinjam</p></td>';
+                                        } else if ($br->status == 'Pending') {
+                                            echo '<td><p>Tunggu Konfirmasi Admin</p></td>';
+                                        } else if ($br->status == 'Dikembalikan') {
+                                            echo '<td><p>-</p></td>';
                                         }
                                         ?>
                                     </tr>
@@ -64,4 +76,27 @@
         </div>
     </div>
 </div>
+</div>
+
+<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticModalLabel">Konfirmasi Hapus</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Yakin Ingin Menghapus Data ??
+        </p>
+      </div>
+      <input type="hidden" name="action" id="act_value">
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url('laporanruangan/hapus_user/' . $br->id_pr); ?>">Ya, Hapus</a>
+      </div>
+    </div>
+  </div>
 </div>

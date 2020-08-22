@@ -23,4 +23,22 @@ class Mo_login extends CI_Model{
 		$query = $this->db->query('select * from tbl_pinjambarang  where status="Ditolak"');
 		return $query->result();
 	}
+
+	 public function login($username, $password){
+        $result = "no";
+        $query = $this->db->query("select * from tbl_login WHERE username = '".$this->db->escape_like_str($username)."' AND password = '".$this->db->escape_like_str($password)."'");
+
+        $row = $query->row();
+
+        if ($query->num_rows() > 0){
+            $result = "ok"; 
+            $user['id'] = $row->id;
+            $user['username'] = $row->username;
+            $user['password'] = $row->password;
+            $user['role_id'] = $row->role_id;
+            $this->session->set_userdata($user);
+        }   
+        
+        return $result;
+    }
 }

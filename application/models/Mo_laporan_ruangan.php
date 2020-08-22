@@ -7,7 +7,7 @@ private $table_ = "tbl_pinjamruangan";
 	function tampil_laporan_ruangan($perPage, $start)
     {
 		$this->db->order_by('tanggal', 'desc');
-		return $this->db->get('tbl_pinjamruangan', $perPage, $start)->result();
+		return $this->db->get_where('tbl_pinjamruangan', array('status' => 'Pending'), $perPage, $start)->result();
 	}
 
 	function baris_ruangan()
@@ -41,5 +41,11 @@ private $table_ = "tbl_pinjamruangan";
     function hapus_ruangan($where,$table){
         $this->db->where($where);
         $this->db->delete($table);
+    }
+
+    public function UPDATE($data){
+        $query = $this->db->query( "UPDATE tbl_pinjamruangan SET status = '".$data['status']."' WHERE id_pr ='".$data['id']."'");
+
+        $this->db->set($query);
     }
 }
