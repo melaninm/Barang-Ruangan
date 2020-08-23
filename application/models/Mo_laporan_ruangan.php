@@ -50,7 +50,7 @@ private $table_ = "tbl_pinjamruangan";
     }
 
     public function UPDATE($data){
-        $query = $this->db->query( "UPDATE tbl_pinjamruangan SET status = '".$data['status']."', keterangan = '".$data['keterangan']."' WHERE id_pr ='".$data['id']."'");
+        $query = $this->db->query( "UPDATE tbl_pinjamruangan SET status = '".$data['status']."', ket = '".$data['ket']."' WHERE id_pr ='".$data['id']."'");
 
         $this->db->set($query);
     }

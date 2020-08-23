@@ -64,7 +64,7 @@ class Mo_laporan extends CI_Model{
     }
 
     public function UPDATE($data){
-        $query = $this->db->query( "UPDATE tbl_pinjambarang SET status = '".$data['status']."', keterangan = '".$data['keterangan']."' WHERE id_pb ='".$data['id']."'");
+        $query = $this->db->query( "UPDATE tbl_pinjambarang SET status = '".$data['status']."', ket = '".$data['ket']."' WHERE id_pb ='".$data['id']."'");
 
         $this->db->set($query);
     }

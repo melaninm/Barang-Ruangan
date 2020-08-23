@@ -194,7 +194,6 @@
           Hubungi Nomor Telepon Peminjam.
         </p>
         <label for="exampleInputEmail1">Segera Kembalikan Peminjaman</label>
-            <input type="hidden" name="keterangan" id=keterangan value="Segera Kembalikan Peminjaman dan Bayar Denda ke Admin" />
       </div>
       <input type="hidden" name="action" id="act_value">
       <div class="modal-footer">

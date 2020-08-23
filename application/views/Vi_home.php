@@ -130,7 +130,7 @@
                     echo "<td>".$row->nama2."</td>";
                     echo "<td>".$telat."</td>";
                     echo "<td>".($telat*500)."</td>";
-                    echo '<td><a href="'.base_url("Laporanbarang/kelaporan/").'" class="ion-edit text-success" style="font-size: 20px;" onclick="myFunction();"> More Info</a></td>';
+                    echo '<td><a href="'.base_url("crudpinjambarang/accpinjam_barang/".$row->id_pb).'" class="ion-edit text-success" style="font-size: 20px;" onclick="myFunction();"> More Info</a></td>';
                     echo "</tr>";
 
                       $i++;

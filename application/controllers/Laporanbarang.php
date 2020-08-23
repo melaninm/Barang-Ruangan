@@ -90,7 +90,7 @@ class Laporanbarang extends CI_Controller
     }
 
     public function updatelaporan(){
-        $input['keterangan'] = $this->input->post("keterangan");
+        $input['ket'] = $this->input->post("alasan");
         $start = $this->uri->segment(3);
         $input['id'] = $start;
         $input['status'] = $this->uri->segment(4);
@@ -103,7 +103,7 @@ class Laporanbarang extends CI_Controller
 
     function kelaporan_user()
     {
-        $input['keterangan'] = "";
+        $input['ket'] = "";
         $start = $this->uri->segment(3);
         $input['id'] = $start;
         $input['status'] = $this->uri->segment(4);

@@ -29,11 +29,11 @@
                             <div class="col-12 col-md-9"><input type="text" id="datepicker" name="tanggal_kembali" placeholder="yyyy-mm-dd" class="tanggal_kembali form-control" value="<?= $d->tanggal_kembali; ?>" required readonly></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 1</label></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pihak Pertama</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="nama1" name="nama1" value="<?php echo $d->nama1; ?>" readonly class="form-control" required></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nama 2</label></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pihak Kedua</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $d->nama2; ?>" readonly class="form-control" required></div>
                         </div>
                         <div class="row form-group">

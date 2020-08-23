@@ -129,7 +129,6 @@
         <p>
           Yakin Barang Sudah Dikembalikan ??
         </p>
-        <input type="hidden" name="keterangan" id=keterangan value="Terimakasih Sudah Mengembalikan" />
       </div>
       <input type="hidden" name="action" id="act_value">
       <div class="modal-footer">
@@ -155,7 +154,6 @@
         <p>
           Yakin Ingin Menerima Peminjaman Ini ??
         </p>
-        <input type="hidden" name="keterangan" id=keterangan value="Barang Sudah Bisa Dipinjam" />
       </div>
       <input type="hidden" name="action" id="act_value">
       <div class="modal-footer">
@@ -182,7 +180,7 @@
           Yakin Menolak Peminjaman Ini ??
         </p>
             <label for="exampleInputEmail1">Alasan : </label>
-            <input type="text" name="keterangan" id=keterangan value="" />
+            <input type="text" name="alasan" id=alasan value="" />
           </div>
           <input type="hidden" name="action" id="act_value">
           <div class="modal-footer">
@@ -209,7 +207,6 @@
           Hubungi Nomor Telepon Peminjam.
         </p>
             <label for="exampleInputEmail1">Segera Kembalikan Peminjaman</label>
-            <input type="hidden" name="keterangan" id=keterangan value="Segera Kembalikan Peminjaman dan Bayar Denda ke Admin" />
           </div>
           <input type="hidden" name="action" id="act_value">
           <div class="modal-footer">
