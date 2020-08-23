@@ -109,7 +109,7 @@ class Mo_pinjambarang extends CI_Model
 			'notel' => $notel,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
-			'keterangan' => "Tunggu Konfirmasi Dari Admin",
+			//'keterangan' => "Tunggu Konfirmasi Dari Admin",
 			"file_name"=>$this->upload->data("file_name"),
 		);
 
@@ -291,7 +291,7 @@ class Mo_pinjambarang extends CI_Model
 			'nama2' => $nama2,
 			'notel' => $notel,
 			'status' => $status,
-			'keterangan' => "Barang Sudah Bisa Dipinjam",
+			//'keterangan' => "Barang Sudah Bisa Dipinjam",
 		);
 		$this->db->where('id_pb', $id);
 		return $this->db->update('tbl_pinjambarang', $field);
@@ -333,7 +333,7 @@ class Mo_pinjambarang extends CI_Model
 			'nama2' => $nama2,
 			'notel' => $notel,
 			'status' => $status,
-			'keterangan' => "Terimakasih Sudah Mengembalikan",
+			//'keterangan' => "Terimakasih Sudah Mengembalikan",
 		);
 		$this->db->where('id_pb', $id);
 		return $this->db->update('tbl_pinjambarang', $field);
@@ -350,7 +350,7 @@ class Mo_pinjambarang extends CI_Model
 			'nama2' => $nama2,
 			'notel' => $notel,
 			'status' => $status,
-			'keterangan' => "Segera Kembalikan Peminjaman dan Bayar Denda ke Admin",
+			//'keterangan' => "Segera Kembalikan Peminjaman dan Bayar Denda ke Admin",
 		);
 		$this->db->where('id_pb', $id);
 		return $this->db->update('tbl_pinjambarang', $field);

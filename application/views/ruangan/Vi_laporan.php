@@ -59,6 +59,8 @@
                                             echo '<td><a class="btn btn-info form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan/" . $br->id_pr) . '">' . $br->status . '</a></td>';
                                         } else if ($br->status == 'Dikembalikan') {
                                             echo '<td><a class="btn btn-secondary form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan/" . $br->id_pr) . '">' .  $br->status . '</a></td>';
+                                        } else if ($br->status == 'Terlambat') {
+                                            echo '<td><a class="btn btn-dark form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan/" . $br->id_pr) . '">' .  $br->status . '</a></td>';
                                         }
                                         ?>
 

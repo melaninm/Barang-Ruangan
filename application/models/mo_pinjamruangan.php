@@ -96,7 +96,7 @@ class Mo_pinjamruangan extends CI_Model
 			'nama2' => $nama2,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
-			'keterangan' => "Tunggu Konfirmasi Dari Admin",
+			//'keterangan' => "Tunggu Konfirmasi Dari Admin",
 			"file_name"=>$this->upload->data("file_name"),
 		);
 		$this->db->trans_start();
@@ -297,6 +297,23 @@ class Mo_pinjamruangan extends CI_Model
 			'nama1' => $nama1,
 			'nama2' => $nama2,
 			'status' => $status,
+		);
+		$this->db->where('id_pr', $id);
+		return $this->db->update('tbl_pinjamruangan', $field);
+	}
+
+	function terlambat($id, $nopr, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status)
+	{
+		$field = array(
+			'no_pr' => $nopr,
+			'no_spt' => $nospt,
+			'tanggal' => $tanggal,
+			'tanggal_kembali' => $tanggalkembali,
+			'nama1' => $nama1,
+			'nama2' => $nama2,
+			'notel' => $notel,
+			'status' => $status,
+			//'keterangan' => "Segera Kembalikan Peminjaman dan Bayar Denda ke Admin",
 		);
 		$this->db->where('id_pr', $id);
 		return $this->db->update('tbl_pinjamruangan', $field);

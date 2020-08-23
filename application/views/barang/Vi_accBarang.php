@@ -92,12 +92,16 @@
                                                     &emsp; &emsp;
                                                     <button type="submit" class="btn btn-danger" onclick="" data-toggle="modal"data-target="#staticModal4" data-popup="tooltip" data-placement="top" title="Tolak">Tolak</button>
 
-                                                
-
                                                 <?php elseif($detail[0]->status==="Diterima"): ?>
                                                     <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#staticModal2" onclick="$('#act_value').val('Dikembalikan');" title="Kembali">Dikembalikan</button>
                                                     &emsp; &emsp;
                                                     <button type="submit" class="btn btn-dark" data-toggle="modal" data-target="#staticModal5" onclick="$('#act_value').val('Terlambat');" title="Kembali">Terlambat</button>
+
+                                                <?php elseif($detail[0]->status==="Terlambat"): ?>
+                                                    <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#staticModal2" onclick="$('#act_value').val('Dikembalikan');" title="Kembali">Dikembalikan</button>
+                                                    &emsp; &emsp;
+                                                    <button type="submit" class="btn btn-dark" data-toggle="modal" data-target="#staticModal5" onclick="$('#act_value').val('Terlambat');" title="Kembali">Terlambat</button>
+
                                                 <?php endif; ?>
                                             </form>
                                         </div>

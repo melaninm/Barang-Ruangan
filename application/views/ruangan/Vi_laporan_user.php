@@ -45,13 +45,15 @@
                                         </td>
                                         <?php
                                         if ($br->status == 'Ditolak') {
-                                            echo '<td><button class="btn btn-danger form-control">Ditolak</button></td>';
+                                            echo '<td><a class="btn btn-danger form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan_user/" . $br->id_pr) . '">' . $br->status . ' </a></td>';
                                         } else if ($br->status == 'Diterima') {
                                             echo '<td><a class="btn btn-success form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan_user/" . $br->id_pr) . '">' . $br->status . ' </a></td>';
                                         } else if ($br->status == 'Pending') {
                                             echo '<td><a class="btn btn-info form-control" href="#">' . $br->status . '</a></td>';
                                         } else if ($br->status == 'Dikembalikan') {
                                             echo '<td><a class="btn btn-secondary form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan_user/" . $br->id_pr) . '">' . $br->status . ' </a></td>';
+                                        } else if ($br->status == 'Terlambat') {
+                                            echo '<td><a class="btn btn-dark form-control" href="' . base_url("crudpinjamruangan/accpinjam_ruangan_user/" . $br->id_pr) . '">' . $br->status . ' </a></td>';
                                         }
                                         ?>
                                         <!-- <?php echo $br->keterangan ?> -->
@@ -63,7 +65,9 @@
                                         } else if ($br->status == 'Pending') {
                                             echo '<td><p>Tunggu Konfirmasi Admin</p></td>';
                                         } else if ($br->status == 'Dikembalikan') {
-                                            echo '<td><p>-</p></td>';
+                                            echo '<td><p>Terimakasih Sudah Mengembalikan</p></td>';
+                                        } else if ($br->status == 'Terlambat') {
+                                            echo '<td><p>Segera Kembalikan Peminjaman dan Bayar Denda ke Admin</p></td>';
                                         }
                                         ?>
                                     </tr>
