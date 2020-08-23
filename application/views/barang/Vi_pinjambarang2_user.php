@@ -39,6 +39,10 @@
                 <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" value="<?php echo $detail->nama2; ?>" placeholder="Admin Lab FISIP" disabled="" class="form-control" required></div>
               </div>
               <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Telepon</label></div>
+                <div class="col-12 col-md-9"><input type="text" id="notel" name="notel" value= "<?php echo $detail->notel; ?>" disabled="" class="form-control" required></div>
+              </div>
+              <div class="row form-group">
                 <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
                 <div class="col-12 col-md-9"><input type="text" id="nama3" name="nama3" value="<?php echo $detail->tujuan; ?>" disabled="" class="form-control" required></div>
               </div>
@@ -189,7 +193,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-        <a type="button" class="btn btn-primary" href="<?php echo site_url('Admin/index'); ?>">Ya, pindah</a>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url('Admin/index_user'); ?>">Ya, pindah</a>
       </div>
     </div>
   </div>
@@ -210,7 +214,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-        <a type="button" class="btn btn-primary" href="<?php echo site_url('Crudbarang/kebarang'); ?>">Ya, pindah</a>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url('Crudpinjambarang/kepinjambarang_user'); ?>">Ya, pindah</a>
       </div>
     </div>
   </div>
@@ -231,7 +235,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-        <a type="button" class="btn btn-primary" href="<?php echo site_url('Laporanbarang/kelaporan'); ?>">Ya, pindah</a>
+        <a type="button" class="btn btn-primary" href="<?php echo site_url('Laporanbarang/kelaporan_user'); ?>">Ya, pindah</a>
       </div>
     </div>
   </div>

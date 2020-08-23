@@ -28,6 +28,10 @@
                         <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" class="form-control" required placeholder="Nama Lengkap Pihak Kedua"></div>
                     </div>
                     <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Telepon</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="notel" name="notel" placeholder="Nomor Telepon / WhatsApp Pihak Kedua yang Bisa Dihubungi" class="form-control" required></div>
+                    </div>
+                    <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tujuan</label></div>
                         <div class="col-12 col-md-9"><input type="text" id="tujuan" name="tujuan" placeholder="Tujuan Peminjaman" class="form-control" required></div>
                     </div>

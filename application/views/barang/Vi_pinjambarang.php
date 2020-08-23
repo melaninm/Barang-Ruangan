@@ -34,7 +34,7 @@
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pihak Kedua</label></div>
                         <div class="col-12 col-md-9"><input type="text" id="nama2" name="nama2" placeholder="Nama Lengkap Pihak Kedua" class="form-control" required></div>
                     </div>
-                      <div class="row form-group">
+                    <div class="row form-group">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nomor Telepon</label></div>
                         <div class="col-12 col-md-9"><input type="text" id="notel" name="notel" placeholder="Nomor Telepon / WhatsApp Pihak Kedua yang Bisa Dihubungi" class="form-control" required></div>
                     </div>

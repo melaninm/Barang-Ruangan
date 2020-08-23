@@ -58,6 +58,8 @@
                                             echo '<td><a class="btn btn-info form-control" href="' . base_url("crudpinjambarang/accpinjam_barang/" . $br->id_pb) . '">' . $br->status . '</a></td>';
                                         } else if ($br->status == 'Dikembalikan') {
                                             echo '<td><a class="btn btn-secondary form-control" href="' . base_url("crudpinjambarang/accpinjam_barang/" . $br->id_pb) . '">' .  $br->status . '</a></td>';
+                                        } else if ($br->status == 'Terlambat') {
+                                            echo '<td><a class="btn btn-dark form-control" href="' . base_url("crudpinjambarang/accpinjam_barang/" . $br->id_pb) . '">' .  $br->status . '</a></td>';
                                         }
 
                                         ?>

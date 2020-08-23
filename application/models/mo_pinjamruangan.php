@@ -15,6 +15,7 @@ class Mo_pinjamruangan extends CI_Model
 		$tanggal_kembali = $this->input->post('tanggal_kembali');
 		$nama1 = $this->input->post('nama1');
 		$nama2 = $this->input->post('nama2');
+		$notel = $this->input->post('notel');
 		$tujuan = $this->input->post('tujuan');
 
 		$config['upload_path']          = './uploads/';
@@ -38,6 +39,7 @@ class Mo_pinjamruangan extends CI_Model
 			'tanggal_kembali' => $tanggal_kembali,
 			'nama1' => "Admin Lab FISIP",
 			'nama2' => $nama2,
+			'notel' => $notel,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
 			"file_name"=>$this->upload->data("file_name"),
@@ -67,6 +69,7 @@ class Mo_pinjamruangan extends CI_Model
 		$tanggal_kembali = $this->input->post('tanggal_kembali');
 		$nama1 = $this->input->post('nama1');
 		$nama2 = $this->input->post('nama2');
+		$notel = $this->input->post('notel');
 		$tujuan = $this->input->post('tujuan');
 
 		$config['upload_path']          = './uploads/';
@@ -93,6 +96,7 @@ class Mo_pinjamruangan extends CI_Model
 			'nama2' => $nama2,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
+			'keterangan' => "Tunggu Konfirmasi Dari Admin",
 			"file_name"=>$this->upload->data("file_name"),
 		);
 		$this->db->trans_start();

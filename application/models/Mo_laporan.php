@@ -5,8 +5,14 @@ class Mo_laporan extends CI_Model{
 	
 	function tampil_laporan($perPage, $start){
 		$this->db->order_by('tanggal', 'desc');
+		return $this->db->get('tbl_pinjambarang', $perPage, $start)->result();
+	}
+
+	function tampil_laporan_dashboard($perPage, $start){
+		$this->db->order_by('tanggal', 'desc');
 		return $this->db->get_where('tbl_pinjambarang', array('status' => 'Pending'), $perPage, $start)->result();
 	}
+
 	function baris_barang()
     {
         return $this->db->get($this->_table)->num_rows();

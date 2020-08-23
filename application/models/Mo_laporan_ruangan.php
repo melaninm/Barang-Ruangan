@@ -7,8 +7,14 @@ private $table_ = "tbl_pinjamruangan";
 	function tampil_laporan_ruangan($perPage, $start)
     {
 		$this->db->order_by('tanggal', 'desc');
-		return $this->db->get_where('tbl_pinjamruangan', array('status' => 'Pending'), $perPage, $start)->result();
+		return $this->db->get('tbl_pinjamruangan', $perPage, $start)->result();
 	}
+
+    function tampil_laporan_ruangan_dashboard($perPage, $start)
+    {
+        $this->db->order_by('tanggal', 'desc');
+        return $this->db->get_where('tbl_pinjamruangan', array('status' => 'Pending'), $perPage, $start)->result();
+    }
 
 	function baris_ruangan()
     {
@@ -44,8 +50,15 @@ private $table_ = "tbl_pinjamruangan";
     }
 
     public function UPDATE($data){
-        $query = $this->db->query( "UPDATE tbl_pinjamruangan SET status = '".$data['status']."' WHERE id_pr ='".$data['id']."'");
+        $query = $this->db->query( "UPDATE tbl_pinjamruangan SET status = '".$data['status']."', keterangan = '".$data['keterangan']."' WHERE id_pr ='".$data['id']."'");
 
         $this->db->set($query);
+    }
+
+    public function display_denda(){
+        $query = $this->db->query("SELECT * FROM tbl_pinjamruangan WHERE STATUS = 'diterima' AND tanggal_kembali < '".date('Y-m-d')."'");
+        $data = $query->result();
+
+        return $data;
     }
 }

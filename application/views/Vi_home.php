@@ -40,7 +40,7 @@
               <div class="inner" style="margin-left: 40px;">
                 <h4 style="margin-left: 40px;">Pending</h4>
                 <p>Harap Segera Konfirmasi Peminjaman Barang</p>
-                  <a href="<?= base_url("Laporanbarang/kelaporan"); ?>" class="small-box-footer" style="margin-left: 30px;"> <u> More info </u><i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?= base_url("Laporanbarang/kelaporan_dashboard"); ?>" class="small-box-footer" style="margin-left: 30px;"> <u> More info </u><i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
               <div class="inner" style="margin-left: 40px;">
                 <h4 style="margin-left: 40px;">Pending</h4>
                 <p>Harap Segera Konfirmasi Peminjaman Ruangan</p>  
-              <a href="<?= base_url("Laporanruangan/kelaporan"); ?>" class="small-box-footer" style="margin-left: 30px;"> <u> More info </u><i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url("Laporanruangan/kelaporan_dashboard"); ?>" class="small-box-footer" style="margin-left: 30px;"> <u> More info </u><i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
           </div>
@@ -141,6 +141,7 @@
   </div>
 </div>
 
+<!--
 <div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog modal-sm" role="document" >
     <div class="modal-content" style="width:700px; position: absolute; left: -50%;">
@@ -183,7 +184,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- jQuery -->
 <script src="<?= base_url("assets/"); ?>plugins/jquery/jquery.min.js"></script>

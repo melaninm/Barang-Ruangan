@@ -19,10 +19,10 @@ class Laporanbarang extends CI_Controller
     {
 
         $start = $this->uri->segment(3);
-
+        $config['base_url'] = 'http://localhost/Barang-Ruangan/index.php/Laporanbarang/kelaporan/';
         $row = $this->mo_laporan->baris_barang();
         $config['total_rows'] = $row;
-        $config['per_page'] = 3;
+        $config['per_page'] = 5;
         $config['cur_tag_open'] = '&nbsp;<a class="current">';
         $config['cur_tag_close'] = '</a>';
         $config['next_link'] = 'Selanjutnya';
@@ -52,8 +52,45 @@ class Laporanbarang extends CI_Controller
         $this->load->view('menu', $data);
     }
 
+    function kelaporan_dashboard()
+    {
+
+        $start = $this->uri->segment(3);
+        //$config['base_url'] = 'http://localhost/Barang-Ruangan/index.php/Laporanbarang/kelaporan/';
+        $row = $this->mo_laporan->baris_barang();
+        $config['total_rows'] = $row;
+        $config['per_page'] = 5;
+        $config['cur_tag_open'] = '&nbsp;<a class="current">';
+        $config['cur_tag_close'] = '</a>';
+        $config['next_link'] = 'Selanjutnya';
+        $config['prev_link'] = 'Sebelumnya';
+        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+        $config['full_tag_close']   = '</ul></nav></div>';
+        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close']    = '</span></li>';
+        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
+        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['prev_tagl_close']  = '</span>Next</li>';
+        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tagl_close']  = '</span></li>';
+
+        $this->pagination->initialize($config);
+        $data['pagination'] = $this->pagination->create_links();
+        $data['tbl_pinjambarang'] = $this->mo_laporan->tampil_laporan_dashboard($config['per_page'], $start);
+        $data['menu'] = $this->mo_menu->tampil();
+        $data['title'] = 'Laporan Peminjaman Barang';
+        $data['page'] = 'barang/Vi_laporan';
+
+        $this->load->view('menu', $data);
+    }
+
     public function updatelaporan(){
-        $input['keterangan'] = $this->input->post("alasan");
+        $input['keterangan'] = $this->input->post("keterangan");
         $start = $this->uri->segment(3);
         $input['id'] = $start;
         $input['status'] = $this->uri->segment(4);

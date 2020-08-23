@@ -57,7 +57,7 @@
                                         <!-- <?php echo $br->keterangan ?> -->
                                         <?php
                                         if ($br->status == 'Ditolak') {
-                                            echo '<td>$br->keterangan</td>';
+                                            echo '<td>' . $br->keterangan . '</td>';
                                         } else if ($br->status == 'Diterima') {
                                             echo '<td><p>Barang Sudah Bisa Dipinjam</p></td>';
                                         } else if ($br->status == 'Pending') {

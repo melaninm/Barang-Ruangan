@@ -160,10 +160,11 @@ class Crudpinjambarang extends CI_Controller
 		$tanggalkembali = $this->input->post('tanggal_kembali', TRUE);
 		$nama1 = $this->input->post('nama1', TRUE);
 		$nama2 = $this->input->post('nama2', TRUE);
+		$notel = $this->input->post('notel', TRUE);
 		$tujuan = $this->input->post('tujuan', TRUE);
 		$status = $this->input->post('status', TRUE);
 
-		$queryupdate = $this->mo_pinjambarang->tolak($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $tujuan, $status);
+		$queryupdate = $this->mo_pinjambarang->tolak($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status);
 
 		if ($queryupdate) {
 			$pesansukses = '<div class="alert alert-success">Data berhasil diupdate</div>';
@@ -180,10 +181,34 @@ class Crudpinjambarang extends CI_Controller
 		$tanggalkembali = $this->input->post('tanggal_kembali', TRUE);
 		$nama1 = $this->input->post('nama1', TRUE);
 		$nama2 = $this->input->post('nama2', TRUE);
+		$notel = $this->input->post('notel', TRUE);
 		$tujuan = $this->input->post('tujuan', TRUE);
 		$status = $this->input->post('status', TRUE);
+		$keterangan = $this->input->post('keterangan', TRUE);
 
-		$queryupdate = $this->mo_pinjambarang->kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $tujuan, $status);
+		$queryupdate = $this->mo_pinjambarang->kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2,$notel, $tujuan, $status, $keterangan);
+
+		if ($queryupdate) {
+			$pesansukses = '<div class="alert alert-success">Data berhasil diupdate</div>';
+			redirect('Laporanbarang/kelaporan');
+		}
+	}
+
+	public function terlambat()
+	{
+		$id = $this->input->post('id_pb', TRUE);
+		$nopb = $this->input->post('no_pb', TRUE);
+		$nospt = $this->input->post('no_spt', TRUE);
+		$tanggal = $this->input->post('tanggal', TRUE);
+		$tanggalkembali = $this->input->post('tanggal_kembali', TRUE);
+		$nama1 = $this->input->post('nama1', TRUE);
+		$nama2 = $this->input->post('nama2', TRUE);
+		$notel = $this->input->post('notel', TRUE);
+		$tujuan = $this->input->post('tujuan', TRUE);
+		$status = $this->input->post('status', TRUE);
+		$keterangan = $this->input->post('keterangan', TRUE);
+
+		$queryupdate = $this->mo_pinjambarang->kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status, $keterangan);
 
 		if ($queryupdate) {
 			$pesansukses = '<div class="alert alert-success">Data berhasil diupdate</div>';
@@ -200,10 +225,11 @@ class Crudpinjambarang extends CI_Controller
 		$tanggalkembali = $this->input->post('tanggal_kembali', TRUE);
 		$nama1 = $this->input->post('nama1', TRUE);
 		$nama2 = $this->input->post('nama2', TRUE);
+		$notel = $this->input->post('notel', TRUE);
 		$tujuan = $this->input->post('tujuan', TRUE);
 		$status = $this->input->post('status', TRUE);
 
-		$queryupdate = $this->mo_pinjambarang->kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $tujuan, $status);
+		$queryupdate = $this->mo_pinjambarang->kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status);
 
 		if ($queryupdate) {
 			$pesansukses = '<div class="alert alert-success">Data berhasil diupdate</div>';

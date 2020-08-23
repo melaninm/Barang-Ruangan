@@ -78,6 +78,7 @@ class Mo_pinjambarang extends CI_Model
 		$tanggal_kembali = $this->input->post('tanggal_kembali');
 		$nama1 = $this->input->post('nama1');
 		$nama2 = $this->input->post('nama2');
+		$notel = $this->input->post('notel');
 		$tujuan = $this->input->post('tujuan');
 
 		//$data['user']  = $this->db->get_where('tbl_login', ['id' => $this->session->userdata('id')])->row_array();
@@ -105,9 +106,10 @@ class Mo_pinjambarang extends CI_Model
 			'tanggal_kembali' => $tanggal_kembali,
 			'nama1' => "Admin Lab FISIP",
 			'nama2' => $nama2,
+			'notel' => $notel,
 			'tujuan' => $tujuan,
 			'status' => "Pending",
-			'keterangan' => "Silahkan Tunggu Konfirmasi Dari Admin",
+			'keterangan' => "Tunggu Konfirmasi Dari Admin",
 			"file_name"=>$this->upload->data("file_name"),
 		);
 
@@ -287,7 +289,9 @@ class Mo_pinjambarang extends CI_Model
 			'tanggal_kembali' => $tanggalkembali,
 			'nama1' => $nama1,
 			'nama2' => $nama2,
+			'notel' => $notel,
 			'status' => $status,
+			'keterangan' => "Barang Sudah Bisa Dipinjam",
 		);
 		$this->db->where('id_pb', $id);
 		return $this->db->update('tbl_pinjambarang', $field);
@@ -302,7 +306,7 @@ class Mo_pinjambarang extends CI_Model
 		return $this->db->update('tbl_pinjambarang', $field);
 	}
 
-	function tolak($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $tujuan, $status)
+	function tolak($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status)
 	{
 		$field = array(
 			'no_pb' => $nopb,
@@ -311,13 +315,14 @@ class Mo_pinjambarang extends CI_Model
 			'tanggal_kembali' => $tanggalkembali,
 			'nama1' => $nama1,
 			'nama2' => $nama2,
+			'notel' => $notel,
 			'status' => $status,
 		);
 		$this->db->where('id_pb', $id);
 		return $this->db->update('tbl_pinjambarang', $field);
 	}
 
-	function kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $tujuan, $status)
+	function kembali($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status)
 	{
 		$field = array(
 			'no_pb' => $nopb,
@@ -326,7 +331,26 @@ class Mo_pinjambarang extends CI_Model
 			'tanggal_kembali' => $tanggalkembali,
 			'nama1' => $nama1,
 			'nama2' => $nama2,
+			'notel' => $notel,
 			'status' => $status,
+			'keterangan' => "Terimakasih Sudah Mengembalikan",
+		);
+		$this->db->where('id_pb', $id);
+		return $this->db->update('tbl_pinjambarang', $field);
+	}
+
+	function terlambat($id, $nopb, $nospt, $tanggal, $tanggalkembali, $nama1, $nama2, $notel, $tujuan, $status)
+	{
+		$field = array(
+			'no_pb' => $nopb,
+			'no_spt' => $nospt,
+			'tanggal' => $tanggal,
+			'tanggal_kembali' => $tanggalkembali,
+			'nama1' => $nama1,
+			'nama2' => $nama2,
+			'notel' => $notel,
+			'status' => $status,
+			'keterangan' => "Segera Kembalikan Peminjaman dan Bayar Denda ke Admin",
 		);
 		$this->db->where('id_pb', $id);
 		return $this->db->update('tbl_pinjambarang', $field);

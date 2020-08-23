@@ -151,7 +151,7 @@
 
 <div class="modal fade" id="staticModal4" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static" style="position:absolute;left:0%; top:60%;">
   <div class="modal-dialog modal-sm" role="document">
-    <form action="<?= base_url('crudpinjamruangan/update/'); ?>" method="POST">
+    <form action="<?= base_url("laporanruangan/updatelaporan/".$detail[0]->id_pr."/Ditolak"); ?>" method="POST">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticModalLabel">Konfirmasi Penolakan</h5>
@@ -161,15 +161,17 @@
       </div>
       <div class="modal-body">
         <p>
-          Yakin Ingin Menolak Peminjaman Ini ??
+          Yakin Menolak Peminjaman Ini ??
         </p>
-      </div>
-      <input type="hidden" name="action" id="act_value">
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <a  href="<?php echo site_url("laporanruangan/updatelaporan/".$detail[0]->id_pr."/Ditolak"); ?>" type="button" class="btn btn-danger">Ya, Tolak</a>
+            <label for="exampleInputEmail1">Alasan : </label>
+            <input type="text" name="alasan" id=alasan value="" />
+          </div>
+          <input type="hidden" name="action" id="act_value">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-danger">Ya, Tolak</button> 
       </div>
     </div>
-</form>
+  </form>
   </div>
 </div>
